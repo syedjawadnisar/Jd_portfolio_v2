@@ -1,0 +1,16 @@
+node_modules/
+.next/
+out/
+build/
+*.log
+.env*
+!.env.example
+*.tsbuildinfo
+next-env.d.ts
+.DS_Store
+.vscode/
+.idea/
+workspace/
+CLAUDE.md
+.claude/settings.local.json
+.wrangler/

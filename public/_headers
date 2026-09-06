@@ -1,0 +1,13 @@
+# Cloudflare Pages response headers. Copied verbatim into out/ by the export.
+#
+# The generated social card is emitted as an extensionless file
+# (out/opengraph-image), and Pages infers Content-Type from the extension —
+# without this it is served as application/octet-stream and several link
+# unfurlers refuse to render it.
+#
+# The cache is deliberately short rather than immutable: pages reference this
+# URL without a build hash, so a long TTL would pin a stale card in every
+# unfurler's cache after the next deploy.
+/opengraph-image
+  Content-Type: image/png
+  Cache-Control: public, max-age=3600
