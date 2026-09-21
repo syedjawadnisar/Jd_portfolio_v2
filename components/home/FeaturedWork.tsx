@@ -16,7 +16,7 @@ export function FeaturedWork() {
             id="work-title"
             eyebrow="Selected work"
             title="Different domains, the same job: make it work, then make it hold."
-            description="Marketplace billing, telemetry at scale, a legacy migration and document security. Open a card for what was built and what it runs on."
+            description="A GovCloud build-out, subscription metering, AI in production and marketplace billing. Open a card for what was built and what it runs on."
           />
         </Reveal>
 

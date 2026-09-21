@@ -31,7 +31,7 @@ const STACK_FILTERS = stackItemsByUsage(projects);
  *
  * All of it runs in the browser because the site is a static export: there is
  * no server to query, so the whole dataset ships with the page and the work is
- * a filter over eight objects. State lives here and flows down; the URL is a
+ * a filter over a few dozen objects at most. State lives here and flows down; the URL is a
  * projection of it, written by ProjectsUrlState.
  */
 export function ProjectsIndex() {

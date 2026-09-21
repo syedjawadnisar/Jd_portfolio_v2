@@ -11,7 +11,7 @@ import {
 import { allCategories, allStackItems, projects } from "@/data/projects";
 import { OG_IMAGE } from "@/lib/og-image";
 
-const description = `Every project in one place — ${projects.length} builds, grouped into ${allCategories.length} domains, from multi-currency billing to battery telemetry at scale. Search and filter by domain or technology.`;
+const description = `Every project in one place — ${projects.length} builds, grouped into ${allCategories.length} domains, from multi-tenant cloud platforms to battery telemetry at scale. Search and filter by domain or technology.`;
 
 export const metadata: Metadata = {
   title: "Projects",
@@ -72,8 +72,8 @@ export default function ProjectsPage() {
               description={
                 <>
                   Every project in one place — {projects.length} builds, grouped
-                  into {allCategories.length} domains, from multi-currency
-                  billing to battery telemetry at scale. Filter by domain or
+                  into {allCategories.length} domains, from multi-tenant cloud
+                  platforms to battery telemetry at scale. Filter by domain or
                   technology, then open a card for what was actually built.
                 </>
               }

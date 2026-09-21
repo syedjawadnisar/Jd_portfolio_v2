@@ -15,9 +15,9 @@ export function Stats() {
 
   const stats = [
     { value: years, suffix: "+", label: "Years of professional experience" },
-    // Not "shipped end to end": two of the eight are a scoped open-source
-    // contribution and a lead-developer stint, and the label has to be true of
-    // all of them. The four that were owned end to end say so on their cards.
+    // Not "shipped end to end": some entries are scoped contributions, an
+    // open-source feature or one slice of a larger platform, and the label has
+    // to be true of all of them. Cards that were owned end to end say so.
     { value: projects.length, suffix: "", label: "Projects delivered" },
     {
       value: allStackItems.length,
