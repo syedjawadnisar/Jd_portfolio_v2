@@ -32,10 +32,10 @@ export const site = {
   /**
    * Production origin, and the last-resort fallback for canonicals, OG tags,
    * JSON-LD and the sitemap. Point this at the custom domain the day one is
-   * attached; until then it is the Cloudflare Pages origin for this project.
+   * attached. Since 2026-09 that is jawadnisar.com.
    * Never a localhost value — see lib/site-url.ts for why.
    */
-  url: "https://jd-portfolio-v2.pages.dev",
+  url: "https://jawadnisar.com",
   shortName: "Jawad Nisar",
   /** Monogram for the header logo. */
   initials: "JN",
