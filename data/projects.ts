@@ -45,13 +45,13 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "caleo",
-    name: "Caleo",
+    slug: "public-safety-workforce-platform",
+    name: "Public-safety workforce platform",
     tagline: "Multi-tenant AWS SaaS, with an isolated GovCloud deployment.",
     category: "SaaS Platforms",
     focus: "Public safety / AWS GovCloud",
     period: "2026, ongoing",
-    role: "Full-stack engineer at Igknight Tech, across backend, frontend, infrastructure and release engineering",
+    role: "Full-stack engineer at Codlinx (formerly Igknight Tech), across backend, frontend, infrastructure and release engineering",
     summary:
       "Overtime and shift management for law-enforcement agencies: officers claim shifts, check in and out, and are paid from the records. I work across the whole monorepo, a GraphQL API on Lambda, roughly 35 functions in all, two React apps and Terraform-managed infrastructure over 28 AWS services. Most of 2026 went into an isolated GovCloud deployment for a compliance-bound tenant.",
     highlights: [
@@ -79,7 +79,7 @@ export const projects: Project[] = [
     tagline: "Subscriptions, credit metering and a tenant control plane in Go.",
     category: "FinTech & Billing",
     focus: "Knowledge platform / billing and entitlements",
-    role: "Lead developer at Igknight Tech, across more than ten repositories",
+    role: "Lead developer at Codlinx (formerly Igknight Tech), across more than ten repositories",
     summary:
       "A multi-tenant knowledge and insight platform built from Go microservices over PostgreSQL and a Neptune knowledge graph. My latest work there was the commercial layer: subscriptions, tiers, a credit ledger and self-serve upgrades. I also contributed to a control-plane and data-plane split that keeps entitlement checks fast.",
     highlights: [
@@ -109,7 +109,7 @@ export const projects: Project[] = [
     tagline: "Call recordings in, LLM-scored compliance scorecards out.",
     category: "AI & Automation",
     focus: "LLM compliance scoring / insurance call centers",
-    role: "Full-stack engineer at Igknight Tech",
+    role: "Full-stack engineer at Codlinx (formerly Igknight Tech)",
     summary:
       "A multi-tenant platform for insurance call centers. Recordings arrive from SFTP, S3 and partner APIs, get transcribed, then scored by configurable LLM scorecards for required disclaimers and agent performance. I worked across the ingestion pipeline, the background job stack and the React front end.",
     highlights: [
@@ -132,12 +132,12 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    slug: "toptal",
-    name: "Toptal",
+    slug: "global-talent-marketplace",
+    name: "Global talent marketplace",
     tagline: "Worker discounts and multi-currency billing, end to end.",
     category: "FinTech & Billing",
     focus: "FinTech / HR-SaaS",
-    role: "Full-stack engineer at Igknight Tech — feature ownership from schema to UI",
+    role: "Full-stack engineer at Codlinx (formerly Igknight Tech) — feature ownership from schema to UI",
     summary:
       "Built an end-to-end worker discounts system for a global talent marketplace, covering the data model, the service layer and the interface. Also delivered a multi-currency billing approval flow, where money moves across currencies and every state transition has to be auditable.",
     highlights: [
@@ -155,7 +155,7 @@ export const projects: Project[] = [
     tagline: "Battery telemetry at scale, queried in under 30 seconds.",
     category: "Data & Infrastructure",
     focus: "Battery telemetry",
-    role: "Architect and lead engineer at Igknight Tech",
+    role: "Architect and lead engineer at Codlinx (formerly Igknight Tech)",
     summary:
       "Architected a battery-data visualization platform on Python and Flask, built to explore datasets far past the point where a naive query plan gives up. The work was equally about the query layer and the live layer: analysts needed both history and a view that updates while they watch it.",
     highlights: [
@@ -223,7 +223,7 @@ export const projects: Project[] = [
     tagline: "AI agent platforms with real personalities behind them.",
     category: "AI & Automation",
     focus: "AI agents",
-    role: "Lead developer at Igknight Tech",
+    role: "Lead developer at Codlinx (formerly Igknight Tech)",
     summary:
       "Built and managed AI-agent platforms wired directly into LLM APIs. The agents generated virtual personalities and ran social media operations, which meant the system had to hold character state as reliably as it held data.",
     highlights: [
@@ -251,7 +251,7 @@ export const projects: Project[] = [
     tagline: "A social media AI agent that can take on any character.",
     category: "AI & Automation",
     focus: "AI agents",
-    role: "Engineer at Igknight Tech",
+    role: "Engineer at Codlinx (formerly Igknight Tech)",
     summary:
       "A Node.js social media agent that adopts whatever character it is given. Search across its NoSQL JSON data was slow and awkward, so I proposed syncing common user data under a single unique key, which made it far easier to query for users and developers alike.",
     highlights: [
@@ -300,11 +300,11 @@ export const projects: Project[] = [
     featured: false,
   },
   {
-    slug: "visume",
-    name: "Visume",
+    slug: "job-portal-platform",
+    name: "Job portal platform",
     tagline: "A job portal with real-time chat, payments and notifications.",
     category: "SaaS Platforms",
-    focus: "Job portal",
+    focus: "Payments, chat and notifications",
     role: "Full-stack engineer",
     summary:
       "A job portal built on Rails. I designed the schema behind its job-portal features, then built the payments, real-time chat and notification layers, and deployed it to Heroku.",
@@ -317,7 +317,6 @@ export const projects: Project[] = [
     ],
     stack: ["Ruby on Rails", "Stripe", "ActionCable", "Bootstrap", "Heroku"],
     featured: false,
-    links: [{ label: "visumejobs.com", href: "https://visumejobs.com" }],
   },
   {
     slug: "everybooking",
