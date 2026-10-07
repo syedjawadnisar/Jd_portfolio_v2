@@ -14,4 +14,5 @@ export { Reveal, type RevealProps } from "./Reveal";
 export { RevealEager, type RevealEagerProps } from "./RevealEager";
 export { SectionHeading, type SectionHeadingProps } from "./SectionHeading";
 export { Spotlight, type SpotlightProps } from "./Spotlight";
+export { TextLink } from "./TextLink";
 export { ThemeToggle } from "./ThemeToggle";

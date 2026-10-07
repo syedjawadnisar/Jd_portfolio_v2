@@ -6,7 +6,6 @@ import {
   FeaturedWork,
   Hero,
   Skills,
-  Stats,
 } from "@/components/home";
 import { site } from "@/data/site";
 
@@ -17,14 +16,13 @@ export const metadata: Metadata = {
 };
 
 /**
- * Reading order is the argument: what he does, proof it is real, the work
- * itself, the tools, who he is, then the one action worth taking.
+ * Reading order: what he does, the work itself, the tools, who he is, then the
+ * one action worth taking.
  */
 export default function HomePage() {
   return (
     <>
       <Hero />
-      <Stats />
       <FeaturedWork />
       <Skills />
       <About />

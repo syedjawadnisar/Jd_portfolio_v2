@@ -4,16 +4,13 @@ import { ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
+import { TextLink } from "@/components/ui/TextLink";
 import { hero, site } from "@/data/site";
 import { useYearsOfExperience } from "@/lib/experience-client";
 
-/** One primary action, the rest as plain underlined links. */
-const LINK =
-  "inline-flex min-h-11 items-center text-base font-medium underline decoration-border-strong underline-offset-4 transition-colors hover:decoration-foreground";
-
 /**
  * Static on purpose. The headline is the LCP element of the site, so it paints
- * in its final state with no entrance animation and no client work.
+ * in its final state, with no entrance animation.
  */
 export function Hero() {
   const years = useYearsOfExperience();
@@ -40,25 +37,9 @@ export function Hero() {
           >
             View projects
           </Button>
-          <a href={`mailto:${site.email}`} className={LINK}>
-            Email
-          </a>
-          <a
-            href={site.linkedin}
-            target="_blank"
-            rel="noreferrer noopener"
-            className={LINK}
-          >
-            LinkedIn
-          </a>
-          <a
-            href={site.github}
-            target="_blank"
-            rel="noreferrer noopener"
-            className={LINK}
-          >
-            GitHub
-          </a>
+          <TextLink href={`mailto:${site.email}`}>Email</TextLink>
+          <TextLink href={site.linkedin}>LinkedIn</TextLink>
+          <TextLink href={site.github}>GitHub</TextLink>
         </div>
 
         <p className="mt-10 text-sm leading-relaxed text-muted">

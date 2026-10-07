@@ -1,79 +1,34 @@
-import { Github, Linkedin, Mail } from "lucide-react";
-import type { CSSProperties } from "react";
-
-import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
-import { Reveal } from "@/components/ui/Reveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { TextLink } from "@/components/ui/TextLink";
 import { site } from "@/data/site";
 
-/** Keeps the decorative grid from colliding with the card border. */
-const GRID_MASK: CSSProperties = {
-  maskImage: "radial-gradient(80% 80% at 50% 0%, #000, transparent 100%)",
-  WebkitMaskImage: "radial-gradient(80% 80% at 50% 0%, #000, transparent 100%)",
-};
-
+/** The address itself is the call to action. */
 export function ContactCta() {
   return (
-    <section id="contact" aria-labelledby="contact-title" className="scroll-mt-24">
-      <Container className="pb-4 sm:pb-8">
-        <Reveal>
-          <div className="relative isolate overflow-hidden rounded-2xl border border-border bg-surface-raised px-6 py-14 shadow-sm sm:px-12 sm:py-20">
-            <div
-              aria-hidden="true"
-              style={GRID_MASK}
-              className="pointer-events-none absolute inset-0 -z-10 bg-grid opacity-60"
-            />
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-x-0 -bottom-32 -z-10 h-64 bg-[radial-gradient(55%_100%_at_50%_100%,var(--accent-soft),transparent)]"
-            />
+    <section
+      id="contact"
+      aria-labelledby="contact-title"
+      className="scroll-mt-24 border-t border-border"
+    >
+      <Container className="py-20 sm:py-24">
+        <SectionHeading
+          id="contact-title"
+          title="Contact"
+          description="Email is the fastest way to reach me."
+        />
 
-            <SectionHeading
-              id="contact-title"
-              align="center"
-              eyebrow="Contact"
-              title={
-                <span className="text-gradient-accent">
-                  Tell me what you are building.
-                </span>
-              }
-              description={`${site.availability}. Email is the fastest way to reach me.`}
-            />
+        <a
+          href={`mailto:${site.email}`}
+          className="mt-8 inline-block text-2xl font-semibold tracking-tight break-words underline decoration-border-strong underline-offset-[6px] transition-colors hover:decoration-foreground sm:text-3xl"
+        >
+          {site.email}
+        </a>
 
-            <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-              <Button
-                href={`mailto:${site.email}`}
-                size="lg"
-                fullWidth
-                className="sm:w-auto"
-                iconLeft={<Mail className="size-4" strokeWidth={2} />}
-              >
-                <span className="font-mono text-sm">{site.email}</span>
-              </Button>
-              <Button
-                href={site.linkedin}
-                variant="secondary"
-                size="lg"
-                fullWidth
-                className="sm:w-auto"
-                iconLeft={<Linkedin className="size-4" strokeWidth={2} />}
-              >
-                LinkedIn
-              </Button>
-              <Button
-                href={site.github}
-                variant="secondary"
-                size="lg"
-                fullWidth
-                className="sm:w-auto"
-                iconLeft={<Github className="size-4" strokeWidth={2} />}
-              >
-                GitHub
-              </Button>
-            </div>
-          </div>
-        </Reveal>
+        <div className="mt-4 flex flex-wrap gap-x-7">
+          <TextLink href={site.linkedin}>LinkedIn</TextLink>
+          <TextLink href={site.github}>GitHub</TextLink>
+        </div>
       </Container>
     </section>
   );

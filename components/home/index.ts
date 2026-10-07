@@ -4,4 +4,3 @@ export { ContactCta } from "./ContactCta";
 export { FeaturedWork } from "./FeaturedWork";
 export { Hero } from "./Hero";
 export { Skills } from "./Skills";
-export { Stats } from "./Stats";

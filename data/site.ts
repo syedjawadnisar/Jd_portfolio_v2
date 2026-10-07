@@ -22,8 +22,6 @@ export type ContactLink = {
 
 export type SkillGroup = {
   title: string;
-  /** One line explaining how the group is actually used. */
-  note: string;
   items: string[];
 };
 
@@ -60,9 +58,9 @@ export const hero = {
 export const about = {
   heading: "About",
   paragraphs: [
-    "I am a senior full-stack engineer and cloud architect based in Lahore. I work where product decisions and infrastructure decisions meet: designing schemas, cutting query times, standing up real-time systems, and shipping the features that pay for all of it.",
-    "I operate at lead level. I have juniors reporting to me, I own ticket flow and delivery planning, and the complex or urgent production work is mine to handle. That last part is deliberate — the fastest way to keep a system honest is to be the one who gets paged by it.",
-    "Recent work sits at the intersection of AI and cloud: LLM integration and agent platforms on one side, and the AWS plumbing that keeps them fast and affordable on the other.",
+    "I'm a senior full-stack engineer in Lahore, Pakistan. I work across the whole system: database schemas, APIs, AWS infrastructure and the interface on top of it.",
+    "I work at lead level. Juniors report to me and I own delivery planning, and I still take the difficult production problems myself.",
+    "My recent work is mostly multi-tenant SaaS on AWS, including an isolated GovCloud deployment, plus LLM features running in production.",
   ],
 } as const;
 
@@ -95,17 +93,14 @@ export const navItems: NavItem[] = [
 export const skillGroups: SkillGroup[] = [
   {
     title: "Frontend",
-    note: "Typed, accessible interfaces that stay maintainable past the first release.",
     items: ["TypeScript", "React", "Next.js", "Vue.js", "Tailwind CSS"],
   },
   {
     title: "Backend",
-    note: "Service and API design across four runtimes, chosen to fit the problem.",
     items: ["Node.js", "Ruby on Rails", "Python", "Go", "GraphQL", "REST"],
   },
   {
     title: "Data",
-    note: "Schema design, indexing and query work — relational, document and analytical.",
     items: [
       "PostgreSQL",
       "MongoDB",
@@ -116,7 +111,6 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     title: "Cloud & DevOps",
-    note: "Serverless building blocks, containers and pipelines that ship without ceremony.",
     items: [
       "AWS Lambda",
       "Step Functions",
@@ -131,7 +125,6 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     title: "Practice",
-    note: "How the work gets done, and how it holds up once other people depend on it.",
     items: [
       "Multi-tenant SaaS",
       "Event-driven systems",
