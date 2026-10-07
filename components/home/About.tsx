@@ -10,7 +10,7 @@ export function About() {
       className="scroll-mt-24 border-t border-border"
     >
       <Container className="py-20 sm:py-24">
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:gap-16">
+        <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] lg:gap-16">
           <SectionHeading id="about-title" title={about.heading} />
 
           <div className="max-w-2xl space-y-5">

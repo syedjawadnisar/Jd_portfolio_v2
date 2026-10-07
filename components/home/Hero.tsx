@@ -29,7 +29,7 @@ export function Hero() {
           {hero.subheadline}
         </p>
 
-        <div className="mt-10 flex flex-wrap items-center gap-x-7 gap-y-3">
+        <div className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-8">
           <Button
             href="/projects/"
             size="lg"
@@ -37,9 +37,11 @@ export function Hero() {
           >
             View projects
           </Button>
-          <TextLink href={`mailto:${site.email}`}>Email</TextLink>
-          <TextLink href={site.linkedin}>LinkedIn</TextLink>
-          <TextLink href={site.github}>GitHub</TextLink>
+          <div className="flex gap-x-7">
+            <TextLink href={`mailto:${site.email}`}>Email</TextLink>
+            <TextLink href={site.linkedin}>LinkedIn</TextLink>
+            <TextLink href={site.github}>GitHub</TextLink>
+          </div>
         </div>
 
         <p className="mt-10 text-sm leading-relaxed text-muted">

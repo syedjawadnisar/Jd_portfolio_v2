@@ -97,8 +97,8 @@ export function ProjectFilters({
         ) : null}
       </FilterGroup>
 
-      <div className="mt-6 flex min-h-11 items-center">
-        {canClear ? (
+      {canClear ? (
+        <div className="mt-4 flex items-center">
           <button
             type="button"
             onClick={onClearAll}
@@ -107,8 +107,8 @@ export function ProjectFilters({
             <RotateCcw aria-hidden="true" strokeWidth={2} className="size-4" />
             Clear all
           </button>
-        ) : null}
-      </div>
+        </div>
+      ) : null}
     </div>
   );
 }
