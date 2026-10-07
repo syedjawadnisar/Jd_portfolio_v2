@@ -25,7 +25,9 @@ const BG = "#ffffff";
 const FG = "#0d1117";
 const MUTED = "#565f6e";
 const BORDER = "#e4e6eb";
-const ACCENT = "#4b34d1";
+
+/** The domain as printed on the card, without the scheme. */
+const HOST = site.url.replace(/^https?:\/\//, "");
 
 export default function OpengraphImage() {
   return new ImageResponse(
@@ -38,48 +40,14 @@ export default function OpengraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           backgroundColor: BG,
-          padding: "72px 80px",
-          // Stands in for the hairline grid without shipping an asset.
-          backgroundImage: `linear-gradient(to right, ${BORDER} 1px, transparent 1px), linear-gradient(to bottom, ${BORDER} 1px, transparent 1px)`,
-          backgroundSize: "64px 64px",
+          padding: "88px 96px",
         }}
       >
-        <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              width: 68,
-              height: 68,
-              borderRadius: 18,
-              backgroundColor: ACCENT,
-              color: "#ffffff",
-              fontSize: 30,
-              fontWeight: 600,
-              letterSpacing: "-0.02em",
-            }}
-          >
-            {site.initials}
-          </div>
-          <div
-            style={{
-              display: "flex",
-              fontSize: 26,
-              color: MUTED,
-              letterSpacing: "0.14em",
-              textTransform: "uppercase",
-            }}
-          >
-            {site.location}
-          </div>
-        </div>
-
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div
             style={{
               display: "flex",
-              fontSize: 82,
+              fontSize: 88,
               fontWeight: 700,
               color: FG,
               letterSpacing: "-0.035em",
@@ -91,8 +59,8 @@ export default function OpengraphImage() {
           <div
             style={{
               display: "flex",
-              marginTop: 24,
-              fontSize: 38,
+              marginTop: 28,
+              fontSize: 40,
               color: MUTED,
               letterSpacing: "-0.01em",
               lineHeight: 1.3,
@@ -105,24 +73,15 @@ export default function OpengraphImage() {
         <div
           style={{
             display: "flex",
-            alignItems: "center",
-            gap: 18,
+            justifyContent: "space-between",
             borderTop: `2px solid ${BORDER}`,
             paddingTop: 32,
+            fontSize: 30,
+            color: MUTED,
           }}
         >
-          <div
-            style={{
-              display: "flex",
-              width: 14,
-              height: 14,
-              borderRadius: 999,
-              backgroundColor: ACCENT,
-            }}
-          />
-          <div style={{ display: "flex", fontSize: 28, color: FG }}>
-            {site.availability}
-          </div>
+          <div style={{ display: "flex" }}>{HOST}</div>
+          <div style={{ display: "flex" }}>{site.location}</div>
         </div>
       </div>
     ),
