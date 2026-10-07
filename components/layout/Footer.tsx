@@ -28,14 +28,11 @@ export function Footer() {
               {site.role}
               <span className="block">{site.location}</span>
             </p>
-            <p className="mt-4 text-sm leading-relaxed text-muted">
-              {site.availability}.
-            </p>
           </div>
 
           <div className="flex flex-col gap-10 sm:flex-row sm:gap-16">
             <nav aria-label="Footer">
-              <h2 className="font-mono text-xs font-medium tracking-[0.18em] text-muted uppercase">
+              <h2 className="text-sm font-medium">
                 Site
               </h2>
               <ul className="mt-4 space-y-1">
@@ -53,7 +50,7 @@ export function Footer() {
             </nav>
 
             <div>
-              <h2 className="font-mono text-xs font-medium tracking-[0.18em] text-muted uppercase">
+              <h2 className="text-sm font-medium">
                 Contact
               </h2>
               <ul className="mt-4 space-y-1">
@@ -84,7 +81,7 @@ export function Footer() {
 
         <div className="mt-12 border-t border-border pt-6">
           <p className="text-xs text-muted">
-            &copy; <FooterYear /> {site.name}. Built with Next.js and Tailwind CSS.
+            &copy; <FooterYear /> {site.name}
           </p>
         </div>
       </Container>

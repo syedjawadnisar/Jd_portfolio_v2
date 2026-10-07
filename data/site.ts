@@ -138,8 +138,8 @@ export const skillGroups: SkillGroup[] = [
   },
 ];
 
-/** Reused by the header CTA and the contact section. */
+/** The email link in the header, desktop and mobile. */
 export const primaryCta = {
-  label: "Get in touch",
+  label: "Email",
   href: `mailto:${site.email}`,
 } as const;
