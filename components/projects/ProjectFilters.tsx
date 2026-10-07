@@ -107,11 +107,7 @@ export function ProjectFilters({
             <RotateCcw aria-hidden="true" strokeWidth={2} className="size-4" />
             Clear all
           </button>
-        ) : (
-          <p className="px-3 text-sm text-muted">
-            Filters compose — pick a domain and a technology to narrow further.
-          </p>
-        )}
+        ) : null}
       </div>
     </div>
   );
@@ -132,7 +128,7 @@ function FilterGroup({
     <div className={className}>
       <h3
         id={id}
-        className="font-mono text-xs font-medium tracking-[0.18em] text-muted uppercase"
+        className="text-sm font-medium"
       >
         {label}
       </h3>
@@ -161,11 +157,10 @@ function FilterChip({
         aria-pressed={pressed}
         onClick={onClick}
         className={cn(
-          "inline-flex min-h-11 items-center rounded-lg border px-3.5 py-2 text-sm transition-[background-color,border-color,color,transform] duration-200 ease-out-expo",
-          "hover:-translate-y-px motion-reduce:hover:translate-y-0",
+          "inline-flex min-h-11 items-center rounded-lg border px-3.5 py-2 text-sm transition-[background-color,border-color,color] duration-200",
           mono && "font-mono text-[13px] tracking-tight",
           pressed
-            ? "border-accent bg-accent text-accent-foreground shadow-sm"
+            ? "border-accent bg-accent text-accent-foreground"
             : "border-border bg-surface-raised text-muted hover:border-border-strong hover:text-foreground",
         )}
       >
