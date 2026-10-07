@@ -51,12 +51,10 @@ export const site = {
 } as const;
 
 export const hero = {
-  /** Rendered as the single h1. Split on words for a staggered reveal. */
+  /** Rendered as the single h1, in one colour. */
   headline: "I build systems that stay fast when they get big.",
   subheadline:
-    "Senior full-stack engineer and cloud architect. I take products from schema design through to the interface people actually use — and I stay for the part where the queries get slow, the bill gets loud and someone has to fix it.",
-  /** Short line under the CTAs. Keep it to one clause. */
-  note: "Lahore, Pakistan · working remote with teams worldwide",
+    "Senior full-stack engineer and cloud architect, currently leading a small team. Most of my work is multi-tenant SaaS on AWS, in Ruby on Rails and TypeScript, from the database schema to the interface.",
 } as const;
 
 export const about = {
