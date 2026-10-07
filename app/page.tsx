@@ -10,7 +10,9 @@ import {
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Senior Full-Stack Engineer & Cloud Architect",
+  // `absolute` skips the layout template. The home page sits in the same
+  // segment as that template, so without it the tab title carried no name.
+  title: { absolute: `${site.name}, Senior Full-Stack Engineer & Cloud Architect` },
   description: site.description,
   alternates: { canonical: "/" },
 };
