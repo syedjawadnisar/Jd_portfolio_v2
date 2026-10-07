@@ -24,7 +24,7 @@ const mono = JetBrains_Mono({
   variable: "--font-mono-face",
 });
 
-const title = `${site.name} — ${site.role}`;
+const title = `${site.name}, ${site.role}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
