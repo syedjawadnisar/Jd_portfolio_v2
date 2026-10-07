@@ -3,8 +3,6 @@ import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 export type SectionHeadingProps = {
-  /** Small mono label above the title. Keep it to one or two words. */
-  eyebrow?: string;
   title: ReactNode;
   description?: ReactNode;
   /** Buttons or links pinned to the right on wide screens. */
@@ -18,7 +16,6 @@ export type SectionHeadingProps = {
 };
 
 export function SectionHeading({
-  eyebrow,
   title,
   description,
   actions,
@@ -38,12 +35,6 @@ export function SectionHeading({
       )}
     >
       <div className={cn("max-w-2xl", centered && "text-center")}>
-        {eyebrow ? (
-          <p className="mb-3 font-mono text-xs font-medium tracking-[0.18em] text-accent uppercase">
-            {eyebrow}
-          </p>
-        ) : null}
-
         <Tag
           id={id}
           className={cn(
