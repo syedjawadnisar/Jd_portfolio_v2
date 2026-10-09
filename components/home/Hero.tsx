@@ -65,10 +65,6 @@ export function Hero() {
           style={fadeUp(0)}
           className="reveal-eager inline-flex items-center gap-2.5 rounded-full border border-border bg-surface-raised px-3.5 py-1.5 text-xs font-medium text-muted shadow-sm sm:text-sm"
         >
-          <span aria-hidden="true" className="relative flex size-2 shrink-0">
-            <span className="absolute inline-flex size-full animate-ping rounded-full bg-accent opacity-60 motion-reduce:hidden" />
-            <span className="relative inline-flex size-2 rounded-full bg-accent" />
-          </span>
           {site.availability}
         </p>
 

@@ -111,15 +111,6 @@ export default function OpengraphImage() {
             paddingTop: 32,
           }}
         >
-          <div
-            style={{
-              display: "flex",
-              width: 14,
-              height: 14,
-              borderRadius: 999,
-              backgroundColor: ACCENT,
-            }}
-          />
           <div style={{ display: "flex", fontSize: 28, color: FG }}>
             {site.availability}
           </div>
