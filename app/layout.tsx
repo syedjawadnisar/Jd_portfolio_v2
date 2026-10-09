@@ -24,7 +24,7 @@ const mono = JetBrains_Mono({
   variable: "--font-mono-face",
 });
 
-const title = `${site.name}, ${site.role}`;
+const title = `${site.name} — ${site.role}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -119,6 +119,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         {/* Must stay blocking and must stay first: it decides the theme
             before the browser paints anything. */}
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+        {/* Below-the-fold reveals start at opacity 0 and wait for an
+            IntersectionObserver. With JS off that would leave most of the page
+            blank, so force the final state. Above-the-fold reveals are pure
+            CSS and never need this. */}
+        <noscript>
+          <style>{`[data-reveal]{opacity:1!important;transform:none!important}`}</style>
+        </noscript>
       </head>
       <body className="flex min-h-dvh flex-col">
         <SkipLink />

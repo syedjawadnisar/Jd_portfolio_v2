@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 
 const VARIANTS = {
   primary:
-    "bg-accent text-accent-foreground border-transparent hover:bg-accent-hover",
+    "bg-accent text-accent-foreground border-transparent hover:bg-accent-hover hover:shadow-glow",
   secondary:
     "bg-surface-raised text-foreground border-border hover:border-border-strong hover:bg-surface",
   ghost:
@@ -51,7 +51,9 @@ export type ButtonProps = AsButton | AsLink;
 
 const BASE =
   "inline-flex items-center justify-center rounded-lg border font-medium " +
-  "transition-colors duration-200 select-none touch-manipulation " +
+  "transition-[background-color,border-color,box-shadow,transform] duration-200 " +
+  "ease-out-expo select-none touch-manipulation " +
+  "hover:-translate-y-px active:translate-y-0 motion-reduce:hover:translate-y-0 " +
   "disabled:pointer-events-none disabled:opacity-50";
 
 function isExternal(href: string): boolean {

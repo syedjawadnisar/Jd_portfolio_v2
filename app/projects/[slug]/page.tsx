@@ -11,7 +11,7 @@ import {
   PROJECT_TITLE_ID,
   RelatedProjects,
 } from "@/components/projects/detail";
-import { Container } from "@/components/ui";
+import { Container, Reveal } from "@/components/ui";
 import { allProjectSlugs, getProjectBySlug } from "@/data/projects";
 import { site } from "@/data/site";
 import { OG_IMAGE } from "@/lib/og-image";
@@ -47,7 +47,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   const path = `/projects/${project.slug}/`;
-  const title = `${project.name}: ${project.tagline}`;
+  const title = `${project.name} — ${project.tagline}`;
   const description = truncate(`${project.tagline} ${project.summary}`);
 
   return {
@@ -88,12 +88,14 @@ export default async function ProjectDetailPage({ params }: PageProps) {
           <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_17rem] lg:gap-16">
             <div className="min-w-0">
               <section aria-labelledby="overview-heading">
-                <h2 id="overview-heading" className="text-2xl sm:text-3xl">
-                  Overview
-                </h2>
-                <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
-                  {project.summary}
-                </p>
+                <Reveal>
+                  <h2 id="overview-heading" className="text-2xl sm:text-3xl">
+                    Overview
+                  </h2>
+                  <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted sm:text-lg">
+                    {project.summary}
+                  </p>
+                </Reveal>
               </section>
 
               <div className="mt-14 sm:mt-16">
@@ -110,7 +112,9 @@ export default async function ProjectDetailPage({ params }: PageProps) {
       </article>
 
       <Container className="mt-20 sm:mt-24">
-        <ProjectPager previous={previous} next={next} />
+        <Reveal>
+          <ProjectPager previous={previous} next={next} />
+        </Reveal>
       </Container>
 
       <Container className="mt-20 border-t border-border pt-16 sm:mt-28 sm:pt-20">

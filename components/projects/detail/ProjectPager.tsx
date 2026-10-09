@@ -20,21 +20,30 @@ function PagerLink({
     <Link
       href={`/projects/${project.slug}/`}
       className={cn(
-        "group flex flex-col gap-1 rounded-xl border border-border p-5 transition-colors duration-200 hover:border-border-strong sm:p-6",
+        "group flex flex-col gap-2 rounded-xl border border-border bg-surface-raised p-5 sm:p-6",
+        "transition-[border-color,background-color,transform] duration-300 ease-out-expo",
+        "hover:-translate-y-0.5 hover:border-accent/40 hover:bg-surface motion-reduce:hover:translate-y-0",
         isNext && "sm:items-end sm:text-right",
       )}
     >
       <span
         className={cn(
-          "inline-flex items-center gap-1.5 text-sm text-muted",
+          "inline-flex items-center gap-2 font-mono text-[11px] tracking-[0.18em] text-muted uppercase",
           isNext && "sm:flex-row-reverse",
         )}
       >
-        <Icon aria-hidden="true" className="size-4" strokeWidth={2} />
-        {isNext ? "Next" : "Previous"}
+        <Icon
+          aria-hidden="true"
+          className={cn(
+            "size-3.5 transition-transform duration-300 ease-out-expo motion-reduce:transform-none",
+            isNext ? "group-hover:translate-x-0.5" : "group-hover:-translate-x-0.5",
+          )}
+          strokeWidth={2}
+        />
+        {isNext ? "Next project" : "Previous project"}
       </span>
 
-      <span className="text-lg font-semibold tracking-tight underline-offset-4 group-hover:underline">
+      <span className="text-lg font-semibold tracking-tight text-foreground">
         {project.name}
       </span>
       <span className="text-sm text-muted">{project.tagline}</span>
