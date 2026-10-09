@@ -137,7 +137,7 @@ export const projects: Project[] = [
     tagline: "Worker discounts and multi-currency billing, end to end.",
     category: "FinTech & Billing",
     focus: "FinTech / HR-SaaS",
-    role: "Full-stack engineer at Codlinx (formerly Igknight Tech), owning features from schema to UI",
+    role: "Full-stack engineer at Codlinx (formerly Igknight Tech) — feature ownership from schema to UI",
     summary:
       "Built an end-to-end worker discounts system for a global talent marketplace, covering the data model, the service layer and the interface. Also delivered a multi-currency billing approval flow, where money moves across currencies and every state transition has to be auditable.",
     highlights: [
@@ -194,7 +194,7 @@ export const projects: Project[] = [
     tagline: "Permanent PDF redaction at the coordinate level.",
     category: "SaaS Platforms",
     focus: "Open source / document security",
-    role: "Feature engineer at Cybros.Dev, on an open-source contribution",
+    role: "Feature engineer at Cybros.Dev — open-source contribution",
     summary:
       "Engineered a permanent text-redaction feature for a major open-source document platform. Redaction that only hides pixels is not redaction, so the implementation works at the PDF coordinate level and removes the underlying text rather than covering it.",
     highlights: [
@@ -287,7 +287,7 @@ export const projects: Project[] = [
     tagline: "Dynamic dashboards, N+1 bottlenecks removed, payments wired in.",
     category: "FinTech & Billing",
     focus: "SaaS / dashboards",
-    role: "Full-stack engineer at Cybros.Dev, on schema design and integrations",
+    role: "Full-stack engineer at Cybros.Dev — schema design and integrations",
     summary:
       "Built dynamic management dashboards backed by a database schema designed from scratch. Dashboards surface the query problems a schema is hiding, so a large part of the work was finding and resolving the N+1 bottlenecks behind the slow views, then integrating the third-party services the product billed through.",
     highlights: [

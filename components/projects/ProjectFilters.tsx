@@ -97,8 +97,8 @@ export function ProjectFilters({
         ) : null}
       </FilterGroup>
 
-      {canClear ? (
-        <div className="mt-4 flex items-center">
+      <div className="mt-6 flex min-h-11 items-center">
+        {canClear ? (
           <button
             type="button"
             onClick={onClearAll}
@@ -107,8 +107,12 @@ export function ProjectFilters({
             <RotateCcw aria-hidden="true" strokeWidth={2} className="size-4" />
             Clear all
           </button>
-        </div>
-      ) : null}
+        ) : (
+          <p className="px-3 text-sm text-muted">
+            Filters compose — pick a domain and a technology to narrow further.
+          </p>
+        )}
+      </div>
     </div>
   );
 }
@@ -128,7 +132,7 @@ function FilterGroup({
     <div className={className}>
       <h3
         id={id}
-        className="text-sm font-medium"
+        className="font-mono text-xs font-medium tracking-[0.18em] text-muted uppercase"
       >
         {label}
       </h3>
@@ -157,10 +161,11 @@ function FilterChip({
         aria-pressed={pressed}
         onClick={onClick}
         className={cn(
-          "inline-flex min-h-11 items-center rounded-lg border px-3.5 py-2 text-sm transition-[background-color,border-color,color] duration-200",
+          "inline-flex min-h-11 items-center rounded-lg border px-3.5 py-2 text-sm transition-[background-color,border-color,color,transform] duration-200 ease-out-expo",
+          "hover:-translate-y-px motion-reduce:hover:translate-y-0",
           mono && "font-mono text-[13px] tracking-tight",
           pressed
-            ? "border-accent bg-accent text-accent-foreground"
+            ? "border-accent bg-accent text-accent-foreground shadow-sm"
             : "border-border bg-surface-raised text-muted hover:border-border-strong hover:text-foreground",
         )}
       >

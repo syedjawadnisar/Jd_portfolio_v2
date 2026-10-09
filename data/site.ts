@@ -22,6 +22,8 @@ export type ContactLink = {
 
 export type SkillGroup = {
   title: string;
+  /** One line explaining how the group is actually used. */
+  note: string;
   items: string[];
 };
 
@@ -49,18 +51,20 @@ export const site = {
 } as const;
 
 export const hero = {
-  /** Rendered as the single h1, in one colour. */
+  /** Rendered as the single h1. Split on words for a staggered reveal. */
   headline: "I build systems that stay fast when they get big.",
   subheadline:
-    "Senior full-stack engineer and cloud architect, currently leading a small team. Most of my work is multi-tenant SaaS on AWS, in Ruby on Rails and TypeScript, from the database schema to the interface.",
+    "Senior full-stack engineer and cloud architect. I take products from schema design through to the interface people actually use — and I stay for the part where the queries get slow, the bill gets loud and someone has to fix it.",
+  /** Short line under the CTAs. Keep it to one clause. */
+  note: "Lahore, Pakistan · working remote with teams worldwide",
 } as const;
 
 export const about = {
   heading: "About",
   paragraphs: [
-    "I'm a senior full-stack engineer in Lahore, Pakistan. I work across the whole system: database schemas, APIs, AWS infrastructure and the interface on top of it.",
-    "I work at lead level. Juniors report to me and I own delivery planning, and I still take the difficult production problems myself.",
-    "My recent work is mostly multi-tenant SaaS on AWS, including an isolated GovCloud deployment, plus LLM features running in production.",
+    "I am a senior full-stack engineer and cloud architect based in Lahore. I work where product decisions and infrastructure decisions meet: designing schemas, cutting query times, standing up real-time systems, and shipping the features that pay for all of it.",
+    "I operate at lead level. I have juniors reporting to me, I own ticket flow and delivery planning, and the complex or urgent production work is mine to handle. That last part is deliberate — the fastest way to keep a system honest is to be the one who gets paged by it.",
+    "Recent work sits at the intersection of AI and cloud: LLM integration and agent platforms on one side, and the AWS plumbing that keeps them fast and affordable on the other.",
   ],
 } as const;
 
@@ -93,14 +97,17 @@ export const navItems: NavItem[] = [
 export const skillGroups: SkillGroup[] = [
   {
     title: "Frontend",
+    note: "Typed, accessible interfaces that stay maintainable past the first release.",
     items: ["TypeScript", "React", "Next.js", "Vue.js", "Tailwind CSS"],
   },
   {
     title: "Backend",
+    note: "Service and API design across four runtimes, chosen to fit the problem.",
     items: ["Node.js", "Ruby on Rails", "Python", "Go", "GraphQL", "REST"],
   },
   {
     title: "Data",
+    note: "Schema design, indexing and query work — relational, document and analytical.",
     items: [
       "PostgreSQL",
       "MongoDB",
@@ -111,6 +118,7 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     title: "Cloud & DevOps",
+    note: "Serverless building blocks, containers and pipelines that ship without ceremony.",
     items: [
       "AWS Lambda",
       "Step Functions",
@@ -125,6 +133,7 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     title: "Practice",
+    note: "How the work gets done, and how it holds up once other people depend on it.",
     items: [
       "Multi-tenant SaaS",
       "Event-driven systems",
@@ -138,8 +147,8 @@ export const skillGroups: SkillGroup[] = [
   },
 ];
 
-/** The email link in the header, desktop and mobile. */
+/** Reused by the header CTA and the contact section. */
 export const primaryCta = {
-  label: "Email",
+  label: "Get in touch",
   href: `mailto:${site.email}`,
 } as const;

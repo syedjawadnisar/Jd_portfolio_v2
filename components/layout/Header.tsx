@@ -8,6 +8,7 @@ import { useEffect, useId, useState } from "react";
 import { navItems, primaryCta, site } from "@/data/site";
 import { cn } from "@/lib/utils";
 
+import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { ThemeToggle } from "@/components/ui/ThemeToggle";
 
@@ -57,10 +58,18 @@ export function Header() {
       <Container className="flex h-16 items-center justify-between gap-4 sm:h-18">
         <Link
           href="/"
-          aria-label={`${site.shortName}, home`}
-          className="inline-flex min-h-11 items-center rounded-md text-base font-semibold tracking-tight"
+          className="group inline-flex items-center gap-2.5 rounded-md"
+          aria-label={`${site.shortName} — home`}
         >
-          {site.shortName}
+          <span
+            aria-hidden="true"
+            className="grid size-9 place-items-center rounded-lg bg-accent font-mono text-[13px] font-semibold tracking-tight text-accent-foreground transition-transform duration-300 ease-out-expo group-hover:-rotate-6 motion-reduce:transform-none"
+          >
+            {site.initials}
+          </span>
+          <span className="text-sm font-semibold tracking-tight sm:text-base">
+            {site.shortName}
+          </span>
         </Link>
 
         <nav aria-label="Primary" className="hidden items-center gap-1 md:flex">
@@ -89,16 +98,17 @@ export function Header() {
               </Link>
             );
           })}
-          <a
-            href={primaryCta.href}
-            className="inline-flex h-11 items-center rounded-lg px-3.5 text-sm font-medium text-muted transition-colors duration-200 hover:text-foreground"
-          >
-            {primaryCta.label}
-          </a>
         </nav>
 
         <div className="flex items-center gap-2">
           <ThemeToggle />
+          <Button
+            href={primaryCta.href}
+            size="sm"
+            className="hidden md:inline-flex"
+          >
+            {primaryCta.label}
+          </Button>
 
           <button
             type="button"
@@ -142,12 +152,9 @@ export function Header() {
                 </Link>
               );
             })}
-            <a
-              href={primaryCta.href}
-              className="flex h-12 items-center rounded-lg px-3 text-base font-medium text-muted transition-colors hover:bg-surface hover:text-foreground"
-            >
+            <Button href={primaryCta.href} size="md" fullWidth className="mt-2">
               {primaryCta.label}
-            </a>
+            </Button>
           </nav>
         </Container>
       </div>

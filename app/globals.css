@@ -48,6 +48,7 @@
   --elev-sm: 0 1px 2px 0 rgb(13 17 23 / 0.05);
   --elev-md: 0 4px 16px -4px rgb(13 17 23 / 0.1), 0 2px 4px -2px rgb(13 17 23 / 0.06);
   --elev-lg: 0 18px 40px -12px rgb(13 17 23 / 0.16), 0 6px 12px -6px rgb(13 17 23 / 0.08);
+  --glow-accent: 0 18px 40px -16px rgb(75 52 209 / 0.4);
 }
 
 .dark {
@@ -75,6 +76,7 @@
   --elev-sm: 0 1px 2px 0 rgb(0 0 0 / 0.4);
   --elev-md: 0 4px 16px -4px rgb(0 0 0 / 0.55), 0 2px 4px -2px rgb(0 0 0 / 0.4);
   --elev-lg: 0 18px 40px -12px rgb(0 0 0 / 0.7), 0 6px 12px -6px rgb(0 0 0 / 0.5);
+  --glow-accent: 0 18px 40px -16px rgb(169 156 255 / 0.28);
 }
 
 /* `inline` keeps the utilities pointing at the variables themselves, so a
@@ -107,6 +109,7 @@
   --shadow-sm: var(--elev-sm);
   --shadow-md: var(--elev-md);
   --shadow-lg: var(--elev-lg);
+  --shadow-glow: var(--glow-accent);
 
   --radius-sm: 0.375rem;
   --radius-md: 0.625rem;
@@ -193,6 +196,73 @@
 }
 
 /* ---------------------------------------------------------------------------
+   Entrance animation, in CSS.
+
+   This is deliberately not JavaScript. Anything above the fold that ships at
+   `opacity: 0` and waits for hydration is an LCP element the browser refuses to
+   count as painted — the headline of every page would be gated on ~44KB gzipped
+   of motion library. Here the markup ships in its final state and the
+   stylesheet, already render-blocking, drives the animation.
+
+   Two variants:
+     .reveal-eager   above the fold. Animates on parse, no JS involved at all.
+     .reveal-scroll  below the fold. Held hidden until components/ui/Reveal.tsx
+                     sets [data-revealed] from an IntersectionObserver.
+
+   Tunables, all optional: --reveal-y, --reveal-duration, --reveal-delay.
+   Their fallbacks mirror REVEAL_DISTANCE and DURATION.base in lib/motion.ts.
+--------------------------------------------------------------------------- */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(var(--reveal-y, 16px));
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@layer components {
+  .reveal-eager,
+  .reveal-scroll[data-revealed] {
+    /* The easing fallback is spelled out on purpose: an undefined custom
+       property invalidates the whole shorthand, which would leave the element
+       stuck at its `from` state forever. */
+    animation: reveal-up var(--reveal-duration, 0.5s)
+      var(--ease-out-expo, cubic-bezier(0.16, 1, 0.3, 1))
+      var(--reveal-delay, 0s) both;
+  }
+
+  .reveal-scroll {
+    opacity: 0;
+    transform: translateY(var(--reveal-y, 16px));
+  }
+}
+
+@layer utilities {
+  /* Hairline grid used behind the hero. Purely decorative. */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, var(--border) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+
+  .text-gradient-accent {
+    background-image: linear-gradient(
+      100deg,
+      var(--fg) 0%,
+      var(--fg) 35%,
+      var(--accent) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+/* ---------------------------------------------------------------------------
    Reduced motion is a hard stop, not a suggestion. This catches CSS
    transitions, keyframes and smooth scrolling site-wide, including anything
    added later.
@@ -210,9 +280,10 @@
     scroll-behavior: auto !important;
   }
 
-  /* The projects grid animates cards with inline styles written by Framer
-     Motion. Important author declarations outrank those, so every animated
-     item carries [data-reveal] and this pins it to its final state. */
+  /* Important author declarations outrank both inline styles and running
+     animations, so this is what actually pins entrance animations to their
+     final state for a visitor who asked us to stop. Any component that
+     animates in must carry [data-reveal]. */
   [data-reveal] {
     opacity: 1 !important;
     transform: none !important;

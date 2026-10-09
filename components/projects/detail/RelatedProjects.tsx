@@ -1,4 +1,4 @@
-import { ProjectCard, SectionHeading } from "@/components/ui";
+import { ProjectCard, Reveal, SectionHeading } from "@/components/ui";
 import type { Project } from "@/data/projects";
 
 /**
@@ -19,19 +19,24 @@ export function RelatedProjects({
 
   return (
     <section aria-labelledby={headingId}>
-      <SectionHeading
-        id={headingId}
-        title={matched ? "Similar work" : "More work"}
-        description={
-          matched ? "Projects that share this one's domain or stack." : undefined
-        }
-      />
+      <Reveal>
+        <SectionHeading
+          id={headingId}
+          eyebrow={matched ? "Related" : "Keep reading"}
+          title={matched ? "Similar work" : "More work"}
+          description={
+            matched
+              ? "Other projects that share this one's domain or its stack."
+              : "Other things worth a look while you are here."
+          }
+        />
+      </Reveal>
 
       <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {projects.map((project) => (
-          <li key={project.slug} className="h-full">
+        {projects.map((project, i) => (
+          <Reveal as="li" key={project.slug} index={i} className="h-full">
             <ProjectCard project={project} headingLevel="h3" />
-          </li>
+          </Reveal>
         ))}
       </ul>
     </section>
