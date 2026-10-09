@@ -10,8 +10,10 @@ import {
 } from "@/components/home";
 import { site } from "@/data/site";
 
+// No `title` here on purpose. This page shares a segment with the root layout,
+// so the layout's template never wraps it. Leaving it unset lets the layout's
+// default, name then role, become the home tab title.
 export const metadata: Metadata = {
-  title: "Senior Full-Stack Engineer & Cloud Architect",
   description: site.description,
   alternates: { canonical: "/" },
 };
